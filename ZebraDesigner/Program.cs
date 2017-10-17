@@ -35,7 +35,7 @@ namespace ZebraDesigner
         //*********************************************************************************************//
         /*****/          static void Main()                                                     /******/
         /*****/              {                                                                 /******/                          
-        /*****/                  Zebra("Plauktiem dzeltena.lbl", "Book1.xlsx", 10);            /******/                           
+        /*****/                  Zebra("Plauktiem dzeltena.lbl", "Book1.xlsx", 1001);         /******/                           
         /*****/              }                                                               /******/                            
         /*****/                                                                             /******/               
         //****************************************************************************************/
@@ -132,13 +132,13 @@ namespace ZebraDesigner
                 const int BST_UNCHECKED = 0x0000;
                 IntPtr PrintToFile = FindWindowEx(PrintDialog, IntPtr.Zero, "Button", "Print to &file");
                 IntPtr CloseAfterPrint = FindWindowEx(PrintDialog, IntPtr.Zero, "Button", "Close after &print");
-                SendMessage(PrintToFile, BM_SETCHECK, BST_CHECKED, IntPtr.Zero);
+                SendMessage(PrintToFile, BM_SETCHECK, BST_UNCHECKED, IntPtr.Zero);
                 SendMessage(CloseAfterPrint, BM_SETCHECK, BST_CHECKED, IntPtr.Zero);
                 Thread.Sleep(1000);
 
                 // PRINT //
                 //     IntPtr Print = FindWindowEx(PrintDialog, IntPtr.Zero, "Button", "Print");
-                IntPtr Print = FindWindowEx(PrintDialog, IntPtr.Zero, "Button", "Close");
+                IntPtr Print = FindWindowEx(PrintDialog, IntPtr.Zero, "Button", "Print");
                 SendMessage((IntPtr)Print, BN_CLICKED, 0, IntPtr.Zero);
                 Thread.Sleep(2000);
 
